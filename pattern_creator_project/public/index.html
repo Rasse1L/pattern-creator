@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f3ef">
+  <meta name="description" content="Создай свой узор на клетчатом поле и отправь его автору.">
+  <title>Pattern Creator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Pattern Creator, главная"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span>PATTERN<span class="brand-light">CREATOR</span></span></a>
+      <span class="top-note">ПРОСТРАНСТВО ДЛЯ ТВОИХ ИДЕЙ</span>
+    </header>
+
+    <section class="intro">
+      <div class="eyebrow"><span class="live-dot"></span> ОНЛАЙН РЕДАКТОР УЗОРОВ</div>
+      <h1>Создай свой<br><span>узор.</span></h1>
+      <p class="intro-copy">Рисуй выступы и впадины, экспериментируй с формой и отправляй результат.</p>
+    </section>
+
+    <section class="identity panel">
+      <div class="field-heading"><label for="nickname">ТВОЙ НИК</label><span class="field-hint">Он сохранится для следующих узоров</span></div>
+      <input id="nickname" type="text" maxlength="32" placeholder="Например, Ewweryn" autocomplete="nickname">
+    </section>
+
+    <section class="workspace">
+      <div class="workspace-head">
+        <div><span class="section-kicker">01 / ХОЛСТ</span><h2>Твоя сетка</h2></div>
+        <label class="size-control">РАЗМЕР <select id="gridSize" aria-label="Размер сетки"></select></label>
+      </div>
+
+      <div class="editor panel">
+        <aside class="tools" aria-label="Инструменты рисования">
+          <span class="tools-label">ИНСТРУМЕНТЫ</span>
+          <button class="tool active" data-tool="1" type="button" aria-pressed="true"><span class="swatch black"></span><span><b>Выступ</b><small>Чёрный</small></span><kbd>1</kbd></button>
+          <button class="tool" data-tool="2" type="button" aria-pressed="false"><span class="swatch red"></span><span><b>Впадина</b><small>Красный</small></span><kbd>2</kbd></button>
+          <button class="tool" data-tool="0" type="button" aria-pressed="false"><span class="swatch empty"><span></span></span><span><b>Ластик</b><small>Очистить клетку</small></span><kbd>3</kbd></button>
+          <div class="tool-divider"></div>
+          <button class="clear-button" id="clearGrid" type="button"><span>↺</span> Очистить всё</button>
+          <div class="legend"><span class="legend-item"><i class="legend-black"></i> Выступ</span><span class="legend-item"><i class="legend-red"></i> Впадина</span></div>
+        </aside>
+
+        <div class="canvas-area">
+          <div class="canvas-topline"><span id="gridLabel">12 × 12</span><span id="cellCount">0 ЗАПОЛНЕНО</span></div>
+          <div class="grid-frame"><div id="grid" class="grid" role="grid" aria-label="Поле для рисования"></div></div>
+          <div class="canvas-foot"><span>ЗАЖМИ И ПРОВОДИ, ЧТОБЫ РИСОВАТЬ</span><span id="progress">0%</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="submit-section">
+      <div class="submit-copy"><span class="section-kicker">02 / ОТПРАВКА</span><h2>Готово? Поделись узором.</h2><p>Изображение сетки придёт автору на почту. Можешь отправлять сколько угодно вариантов.</p></div>
+      <button id="sendButton" class="send-button" type="button"><span>Отправить узор</span><span class="send-arrow">↗</span></button>
+    </section>
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+
+    <footer><span>PATTERN CREATOR</span><span>СДЕЛАНО ДЛЯ ТВОРЧЕСТВА</span></footer>
+  </main>
+  <input id="website" class="honeypot" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <script src="/app.js"></script>
+</body>
+</html>
